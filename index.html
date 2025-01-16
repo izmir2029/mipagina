@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio de Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        .hidden {
+            display: none;
+        }
+        .message-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="login-container">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="username" placeholder="Nombre de usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="login()">Ingresar</button>
+    </div>
+
+    <div class="message-container" id="message-container" class="hidden">
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginContainer = document.getElementById('login-container');
+            const messageElement = document.getElementById('message');
+            const messageContainer = document.getElementById('message-container');
+            
+            if (username === 'Iridiana' && password === 'Izmir2029') {
+                // Ocultar el formulario y mostrar el mensaje
+                loginContainer.classList.add('hidden');
+                messageContainer.classList.remove('hidden'); // Muestra el mensaje
+                messageElement.textContent = 'Me gustas mucho';
+                messageElement.className = 'message success';
+            } else {
+                messageElement.textContent = 'Credenciales incorrectas. Inténtalo de nuevo.';
+                messageElement.className = 'message error';
+            }
+        }
+    </script>
+</body>
+</html>
